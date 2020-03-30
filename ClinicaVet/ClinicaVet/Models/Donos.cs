@@ -34,7 +34,7 @@ namespace ClinicaVet.Models
         ///Lista dos animais que o Dono tem 
         /// </summary>
         
-        public ICollection<Animais> ListaDeAnimais { get; set; }
+        public ICollection<Animais> ListaDeAnimais { get; set; } //Dono ---> Animais
 
     }
 }

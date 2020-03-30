@@ -50,9 +50,13 @@ namespace ClinicaVet.Models
         /// <summary>
         /// FK para a tabela dos Donos
         /// </summary>
-        [ForeignKey(nameof(Dono))]
+        [ForeignKey(nameof(Dono))]  //Animais ---> Dono
         public int DonoFK { get; set; }
         public Donos Dono { get; set; }
+
+
+      
+
 
         /// <summary>
         /// Lista de Consultas a que o animal foi levado pelo seu dono
