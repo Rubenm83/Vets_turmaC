@@ -23,7 +23,7 @@ namespace ClinicaVet.Models
 
         public string Nome { get; set; }
 
-
+        
         // Vet-XXX XXX ----> a palavra VET , um hífen , seguido de 6 digitos
         [Required]
         [RegularExpression("vet-[0-9]{6}",ErrorMessage ="Deve introduzir a palavra 'vet-'(em minúsculas),seguida de 6 dígitos.")]
@@ -31,7 +31,7 @@ namespace ClinicaVet.Models
         [Display(Name = "Nº de Cédula Profisional")]
         public string NumCedulaProf { get; set; }
 
-        public int Fotografia { get; set; }
+        public string Foto { get; set; }
 
         //Lista de 'consultas' a que o Veterinário está associado
 

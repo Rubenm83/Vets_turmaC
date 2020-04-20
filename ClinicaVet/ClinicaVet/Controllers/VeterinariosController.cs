@@ -45,13 +45,23 @@ namespace ClinicaVet.Controllers
         {
             if (id == null)
             {
+                //se o ID é null , é porque é meu utilizador está a testar a minha
+                //aplicação redireciono para o método INDEX do mesmo controller
                 return NotFound();
             }
 
+            //esta expressão db.Veterinarios  .FirstOrDefaultAsync(m => m.ID == id)
+            // é uma forma diferente de escrever o seguinte comando
+            // SELECT * FROM db.Veterinarios v WHERE v.id=id
+            // esta expressão é escrita em LINQ
+
             var veterinarios = await db.Veterinarios
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(v => v.ID == id);
             if (veterinarios == null)
             {
+                //se o ID é null , é porque é meu utilizador está a testar a minha 
+                //aplicação ele introduziu manualmente  um valor inexistente
+                //redireciono para o método INDEX do mesmo controller
                 return NotFound();
             }
 
@@ -95,6 +105,11 @@ namespace ClinicaVet.Controllers
         }
 
         // GET: Veterinarios/Edit/5
+        /// <summary>
+        /// Mostra os detalhes de um veterinario
+        /// </summary>
+        /// <param name="id"></param>valor da PK do veterinario .Admite um valor Null, por causa do sinal ?
+        /// <returns></returns>
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
