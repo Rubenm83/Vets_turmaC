@@ -18,9 +18,8 @@ namespace ClinicaVet.Models
 
         [Required(ErrorMessage ="O Nome é de preenchimento obrigatório")]
         [StringLength(40,ErrorMessage="O {0} só pode ter , no máximo,{1} caracteres.")]
-        [RegularExpression("[A-ZÁÍÓUÉÁ][a-zãõáéíóúàèìòùçâêîôû]" +
-            "[A-Z][a-z]+(( | e |-|'|d'| de | d[ao]s?)[A-Z][a-z]+){1,3}", ErrorMessage = "Só são aceites letras.Cada palavra deve começar por uma Maiscula")]
-
+        /*[RegularExpression("[A-ZÁÍÓUÉÁ][a-zãõáéíóúàèìòùçâêîôû]" +
+            "[A-Z][a-z]+(( | e |-|'|d'| de | d[ao]s?)[A-Z][a-z]+){1,3}", ErrorMessage = "Só são aceites letras.Cada palavra deve começar por uma Maiscula")]*/
         public string Nome { get; set; }
 
         
@@ -33,9 +32,10 @@ namespace ClinicaVet.Models
 
         public string Foto { get; set; }
 
-        //Lista de 'consultas' a que o Veterinário está associado
-
-        public ICollection<Consultas> Consultas { get; set; }
+        /// <summary>
+        /// Lista de 'consultas' a que o Veterinário está associado
+        /// </summary>
+        public virtual ICollection<Consultas> Consultas { get; set; }
 
 
     }
