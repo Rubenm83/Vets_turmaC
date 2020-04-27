@@ -31,9 +31,14 @@ namespace ClinicaVet
 
             //****************************************************************************
             // especificação do 'tipo' e 'localização' da BD
-            services.AddDbContext<VetsDB>(options =>
-               options.UseSqlServer(
-                   Configuration.GetConnectionString("ConnectionDB")));
+            services.AddDbContext<VetsDB>(options => 
+            options.UseSqlServer(Configuration.GetConnectionString("ConnectionDB"))
+            
+            //.UseLazyLoadingProxies()
+            
+            );
+            
+            
             //****************************************************************************
 
         }
